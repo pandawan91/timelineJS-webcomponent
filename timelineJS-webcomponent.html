@@ -33,7 +33,7 @@ wrap timelineJS inside a web component
         }
       },
       _dataChanged : function(){
-        if(this.data){
+        if(this.data == null){
           return;
         }
         this.dataReady = true;

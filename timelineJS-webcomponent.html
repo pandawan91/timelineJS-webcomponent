@@ -16,7 +16,7 @@ wrap timelineJS inside a web component
         display: block;
       }
     </style>
-     <div id='timeline-embed' style="width: 100%; height: 600px" hidden$="[[!dataReady]]"></div>
+     <div id='timelineEmbed' style="width: 100%; height: 100%" hidden$="[[!dataReady]]"></div>
   </template>
   <script>
     Polymer({
@@ -37,7 +37,7 @@ wrap timelineJS inside a web component
           return;
         }
         this.dataReady = true;
-        timeline = new TL.Timeline('timeline-embed', this.data);
+        timeline = new TL.Timeline(this.$.timelineEmbed, this.data);
       }
     });
   </script>

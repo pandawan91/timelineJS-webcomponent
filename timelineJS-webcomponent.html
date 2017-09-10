@@ -1,0 +1,45 @@
+<link rel="import" href="../polymer/polymer.html">
+<link title="timeline-styles" rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
+
+
+<!--
+`timelineJS-webcomponent`
+wrap timelineJS inside a web component
+
+@demo demo/index.html
+-->
+
+<dom-module id="timelineJS-webcomponent">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+     <div id='timeline-embed' style="width: 100%; height: 600px" hidden$="![[dataReady]]"></div>
+  </template>
+  <script>
+    Polymer({
+      is: 'timelineJS-webcomponent',
+      properties: {
+        dataReady: {
+          type: Boolean,
+          value: false
+        },
+        data: {
+          type: Object,
+          value: null,
+          observer: '_dataChanged'
+        }
+      },
+      _dataChanged : function(){
+        if(this.data){
+          return;
+        }
+        this.dataReady = true;
+        timeline = new TL.Timeline('timeline-embed', this.data);
+      }
+    });
+  </script>
+  <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
+</dom-module>

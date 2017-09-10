@@ -37,7 +37,7 @@ wrap timelineJS inside a web component
           return;
         }
         this.dataReady = true;
-        timeline = new TL.Timeline('timeline-embed', this.data);
+        timeline = new TL.Timeline('timeline-embed', this.dataReady);
       }
     });
   </script>
